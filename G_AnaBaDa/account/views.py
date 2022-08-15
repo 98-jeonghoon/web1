@@ -35,9 +35,10 @@ def login(request):
         password = request.POST.get('password')
         user = auth.authenticate(request, account_id=account_id, password=password)
         print(request.POST)
+        print(user)
         if user is not None:
             auth.login(request, user)
-            return render(request, 'main.html')
+            return render(request, 'Base_page.html')
         else:
             return render(request, 'login.html', {'error : ' '등록되지 않은 아이디이거나, 아이디 또는 비밀번호를 잘못 입력하였습니다. '})
         
